@@ -13,6 +13,10 @@ const config: Config = {
       md: "768px",
       lg: "1200px",
     },
+
+    rounded: {
+      sm: "15px"
+    },
     extend: {
       container: {
         center: true,

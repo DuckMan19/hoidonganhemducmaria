@@ -3,6 +3,7 @@ import logo from "@/assets/logo.svg";
 import { MdOutlineMail, MdOutlineMenu } from "react-icons/md";
 import Link from "next/link";
 import { FaPhoneVolume, FaSearch } from "react-icons/fa";
+import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
 
 export const TopHeader = () => {
   return (
@@ -22,7 +23,6 @@ export const TopHeader = () => {
 export const Header = () => {
   return (
     <header className="sticky top-0 bg-primary-500">
-      <TopHeader />
       {/* Phần menu điều hướng */}
       <div className="bg-primary-500 py-5">
         <div className="container mx-auto" style={{ maxWidth: "1600px" }}>
@@ -41,7 +41,42 @@ export const Header = () => {
 
             <div className="flex items-center justify-center gap-4">
               {/* Menu Icon */}
-              <MdOutlineMenu className="h-8 w-8  cursor-pointer text-white" />
+              <Menu as="div" className="relative">
+                <MenuButton>
+                  <MdOutlineMenu className="h-8 w-8  cursor-pointer text-white" />
+                </MenuButton>
+                <MenuItems
+                  as="div"
+                  anchor="bottom"
+                  className="flex bg-primary-500 w-full h-[60vh] absolute container mx-auto"
+                >
+                  <MenuItem>
+                    <a
+                      className="block data-[focus]:bg-blue-100"
+                      href="/settings"
+                    >
+                      Settings
+                    </a>
+                  </MenuItem>
+                  <MenuItem>
+                    <a
+                      className="block data-[focus]:bg-blue-100"
+                      href="/support"
+                    >
+                      Support
+                    </a>
+                  </MenuItem>
+                  <MenuItem>
+                    <a
+                      className="block data-[focus]:bg-blue-100"
+                      href="/license"
+                    >
+                      License
+                    </a>
+                  </MenuItem>
+                </MenuItems>
+              </Menu>
+
               <FaSearch className="h-5 w-5  text-white" />
             </div>
           </div>
